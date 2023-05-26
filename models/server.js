@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require("cors");
+const bodyParser = require('body-parser');
 
 class Server{
     constructor(){
@@ -11,6 +12,8 @@ class Server{
 
     middlewares(){
         this.app.use( express.static('public') );
+        this.app.use(bodyParser.json({limit: '100mb'}));
+        this.app.use(bodyParser.urlencoded({limit: '100mb', extended: true}));
         this.app.use(cors());
         this.app.use(express.json());
     }

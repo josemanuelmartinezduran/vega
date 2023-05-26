@@ -33,6 +33,7 @@ class Antares {
           params.push(inParams);
           conn.execute_kw(model, "read", params, (err2, value2) => {
             console.log("Por retornar el promise");
+            console.log(value2)
             if (err2) {
               reject("Error al ejecutar ", err2);
             } else {
